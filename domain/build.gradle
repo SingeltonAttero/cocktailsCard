@@ -1,0 +1,29 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //  kotlin stdlib
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // rx
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid"
+    //    Toothpick
+    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:$toothpickVersion"
+    kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:$toothpickVersion"
+    //timber
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+    // time lib
+    implementation 'net.danlew:android.joda:2.10.1.1'
+    testImplementation "joda-time:joda-time:2.10.1"
+    // test
+    testImplementation "junit:junit:$junit"
+}
+kapt {
+    generateStubs = true
+    arguments {
+        arg("toothpick_registry_package_name", "com.yakow.weber.cocktailsard.domain")
+    }
+}
+sourceCompatibility = "7"
+targetCompatibility = "7"
