@@ -8,6 +8,7 @@ import com.yakow.weber.cocktailsard.presenter.MainPresenter
 import com.yakow.weber.cocktailsard.presenter.MainView
 import com.yakow.weber.cocktailsard.toothpick.DI
 import com.yakow.weber.cocktailsard.toothpick.system.androidx.MvpAppCompatActivity
+import kotlinx.android.synthetic.main.toolbar.*
 import org.jetbrains.anko.toast
 import toothpick.Toothpick
 
@@ -17,7 +18,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     lateinit var presenter: MainPresenter
 
     @ProvidePresenter
-    fun providerPresenter() = Toothpick
+    fun providerPresenter(): MainPresenter = Toothpick
         .openScope(DI.APP_SCOPE)
         .getInstance(MainPresenter::class.java)
 
@@ -28,5 +29,6 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
     }
 }

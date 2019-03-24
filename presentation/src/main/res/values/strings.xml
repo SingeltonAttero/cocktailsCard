@@ -5,5 +5,8 @@
         <string name="server_error_error">Произошла ошибка</string>
         <string name="unknown_error">Случилась ошибка, повторите позднее</string>
         <string name="network_error">Проверьте соединение с интернетом</string>
+    <string name="cocktail">Коктейли</string>
+    <string name="favorites">Любимое</string>
+    <string name="select_consist">Подбор по составу</string>
 
 </resources>

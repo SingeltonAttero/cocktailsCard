@@ -17,8 +17,6 @@ class MainPresenter @Inject constructor(
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        viewState.showErrorToast("test")
-
     }
 
 }

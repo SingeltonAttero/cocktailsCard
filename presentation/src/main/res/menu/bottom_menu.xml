@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/cocktailsFragment"
+        android:icon="@drawable/ic_local_bar"
+        android:title="@string/cocktail" />
+
+    <item
+        android:id="@+id/consistsFragment"
+        android:icon="@drawable/ic_local_cafe"
+        android:title="@string/select_consist" />
+
+    <item
+        android:id="@+id/favoriteFragment"
+        android:icon="@drawable/ic_favorite_border"
+        android:title="@string/favorites" />
+
+</menu>
