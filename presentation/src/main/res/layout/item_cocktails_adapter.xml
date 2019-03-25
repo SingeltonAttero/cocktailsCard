@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/pictureCocktailView"
+        android:layout_width="104dp"
+        android:layout_height="0dp"
+        android:background="#34FF4081"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/stub"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nameCocktailView"
+        style="@style/titleCocktailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionConsistView"
+        app:layout_constraintStart_toEndOf="@+id/pictureCocktailView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Клубничный милкшейк" />
+
+    <TextView
+        android:id="@+id/descriptionConsistView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:maxLines="3"
+        android:textColor="@color/text_bold_black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/timePreparing"
+        app:layout_constraintEnd_toEndOf="@+id/nameCocktailView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/nameCocktailView"
+        app:layout_constraintTop_toBottomOf="@+id/nameCocktailView"
+        tools:text="Клубника, молоко" />
+
+    <TextView
+        android:id="@+id/timePreparing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:maxLines="3"
+        android:textColor="@color/secondary_text"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/descriptionConsistView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/descriptionConsistView"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionConsistView"
+        tools:text="10 - 15 мин" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

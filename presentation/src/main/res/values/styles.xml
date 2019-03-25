@@ -17,4 +17,10 @@
 
     </style>
 
+    <style name="titleCocktailText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/text_bold_black</item>
+    </style>
+
 </resources>
