@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/favoriteView"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="@string/stub"
+        android:src="@drawable/ic_use_favorite" />
+
+    <ImageView
+        android:id="@+id/drinkCocktailView"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="@string/stub"
+        android:src="@drawable/ic_tested_drink" />
+
+</LinearLayout>
