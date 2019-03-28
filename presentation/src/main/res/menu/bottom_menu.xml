@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/cocktailsFragment"
+        android:id="@+id/sectionsCocktailsFragment"
         android:icon="@drawable/ic_local_bar"
         android:title="@string/cocktail" />
 

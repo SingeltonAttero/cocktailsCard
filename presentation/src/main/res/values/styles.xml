@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
-        <item name="colorControlHighlight">#3969F0AE</item>
+        <item name="colorControlHighlight">#42C5CAE9</item>
     </style>
 
     <style name="ProgressDialogTheme" parent="ThemeOverlay.AppCompat.Dialog">

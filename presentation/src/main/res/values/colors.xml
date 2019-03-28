@@ -10,5 +10,7 @@
       <color name="divider">#BDBDBD</color>
       <color name="bottom_navigation">#C6303F9F</color>
       <color name="primary_bottom_select">#3F51B5</color>
-    <color name="text_bold_black">#212121</color>
+      <color name="text_bold_black">#212121</color>
+      <color name="header_tabs">#C5CAE9</color>
+
 </resources>
