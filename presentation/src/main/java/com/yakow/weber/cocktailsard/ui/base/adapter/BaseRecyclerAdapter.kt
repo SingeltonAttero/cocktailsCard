@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import com.yakow.weber.cocktailsard.extension.inflate
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 
 /**
  * Created on 13.02.19
@@ -12,6 +14,7 @@ import com.yakow.weber.cocktailsard.extension.inflate
 abstract class BaseRecyclerAdapter<T, VH : BaseViewHolder<T>> : RecyclerView.Adapter<VH>() {
 
     abstract var dataSet: MutableList<T>
+    abstract var disposables: CompositeDisposable
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val view = parent.inflate(viewType)
@@ -38,5 +41,9 @@ abstract class BaseRecyclerAdapter<T, VH : BaseViewHolder<T>> : RecyclerView.Ada
         dataSet.clear()
         dataSet.addAll(data)
         this.notifyDataSetChanged()
+    }
+
+    fun Disposable.bind() {
+        disposables.add(this)
     }
 }

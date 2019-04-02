@@ -11,5 +11,6 @@ data class Cocktail(
     val pictureCocktail: String,
     val rating: Int,
     val favorites: Boolean,
-    val tested: Boolean
+    val tested: Boolean,
+    val dayCocktail: Boolean
 )

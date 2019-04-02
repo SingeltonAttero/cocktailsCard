@@ -18,9 +18,14 @@ class SectionsCocktailsFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cocktailsTabs.addTab(cocktailsTabs.newTab().setText("Лонгдринки"))
-        cocktailsTabs.addTab(cocktailsTabs.newTab().setText("Шоты"))
-        cocktailsPager.adapter = SectionsCocktailsAdapter(childFragmentManager)
+        cocktailsTabs.setupWithViewPager(cocktailsPager)
         cocktailsPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(cocktailsTabs))
+        cocktailsPager.adapter = SectionsCocktailsAdapter(childFragmentManager)
+        { position -> tabTitle(position) }
+    }
+
+    private fun tabTitle(position: Int): String = when (position) {
+        0 -> getString(R.string.long_drink)
+        else -> getString(R.string.shots)
     }
 }
