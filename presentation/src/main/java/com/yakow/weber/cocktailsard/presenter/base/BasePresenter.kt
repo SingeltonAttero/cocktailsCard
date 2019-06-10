@@ -1,19 +1,16 @@
 package com.yakow.weber.cocktailsard.presenter.base
 
-import com.arellomobile.mvp.MvpPresenter
-import com.arellomobile.mvp.MvpView
-import com.arellomobile.mvp.viewstate.strategy.SingleStateStrategy
-import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
+import com.hannesdorfmann.mosby3.mvi.MviBasePresenter
 import com.yakow.weber.cocktailsard.toothpick.system.disposable.ComponentDisposables
 import com.yakow.weber.cocktailsard.toothpick.system.disposable.ComponentDisposablesProvider
 
 /**
  * Created on 05.02.19
  * @author YWeber */
-@StateStrategyType(SingleStateStrategy::class)
-open class BasePresenter<V : MvpView> : MvpPresenter<V>(), ComponentDisposablesProvider by ComponentDisposables() {
-    override fun onDestroy() {
+abstract class BasePresenter<V : MviBaseView<*>, VS> : MviBasePresenter<V, VS>(),
+    ComponentDisposablesProvider by ComponentDisposables() {
+    override fun unbindIntents() {
         clear()
-        super.onDestroy()
+        super.unbindIntents()
     }
 }

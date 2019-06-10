@@ -6,7 +6,7 @@ import com.yakow.weber.domain.entity.Cocktail
  * Created on 02.04.19
  * @author YWeber */
 
-interface CocktailsContract {
+interface CocktailsContractRepository {
     val cocktails: List<Cocktail>
     val cocktailsTheDay: Cocktail
 }

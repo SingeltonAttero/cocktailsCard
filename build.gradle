@@ -7,7 +7,7 @@ buildscript {
     ext.ktlintVersion = '0.23.1'
     ext.timberVersion = '4.7.1'
     ext.anko_version = '0.10.7'
-    ext.glideVersion = "4.8.0"
+    ext.glideVersion = "4.9.0"
     ext.room = '2.1.0-alpha04'
     ext.junit = "4.12"
     ext.rxjava = "2.2.0"
@@ -23,7 +23,7 @@ buildscript {
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath 'com.android.tools.build:gradle:3.4.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

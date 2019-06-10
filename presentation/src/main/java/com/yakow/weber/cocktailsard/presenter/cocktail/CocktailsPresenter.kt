@@ -1,23 +1,38 @@
 package com.yakow.weber.cocktailsard.presenter.cocktail
 
-import com.arellomobile.mvp.InjectViewState
 import com.yakow.weber.cocktailsard.extension.printConstruction
 import com.yakow.weber.cocktailsard.presenter.base.BasePresenter
 import com.yakow.weber.domain.interactor.cocktail.CocktailsInteractor
+import com.yakow.weber.domain.state.CocktailPartialState
+import com.yakow.weber.domain.state.CocktailViewState
+import io.reactivex.functions.BiFunction
 import javax.inject.Inject
 
 /**
  * Created on 02.04.19
  * @author YWeber */
-@InjectViewState
 class CocktailsPresenter @Inject constructor(private val interactor: CocktailsInteractor) :
-    BasePresenter<CocktailsView>() {
+    BasePresenter<CocktailsView, CocktailViewState>() {
     init {
         printConstruction()
     }
 
-    override fun onFirstViewAttach() {
-        super.onFirstViewAttach()
-        viewState.setCocktails(interactor.cocktails)
+    override fun bindIntents() {
+        val firstCocktailsIntent = intent(CocktailsView::getFirsCocktailList)
+            .flatMap {
+                interactor.firstPageCocktails()
+            }
+        val initViewState = CocktailViewState(listOf())
+        val distinctUntilChanged =
+            firstCocktailsIntent.scan(initViewState, reducer).distinctUntilChanged()
+        subscribeViewState(distinctUntilChanged, CocktailsView::render)
+
     }
+
+    private val reducer =
+        BiFunction { oldViewState: CocktailViewState, partial: CocktailPartialState ->
+            when (partial) {
+                is CocktailPartialState.FirstCocktailList -> oldViewState.copy(partial.cocktail)
+            }
+        }
 }

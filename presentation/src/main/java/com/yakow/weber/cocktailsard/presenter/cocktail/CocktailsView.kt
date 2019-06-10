@@ -1,14 +1,15 @@
 package com.yakow.weber.cocktailsard.presenter.cocktail
 
-import com.arellomobile.mvp.MvpView
-import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
-import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
+import com.yakow.weber.cocktailsard.presenter.base.MviBaseView
 import com.yakow.weber.domain.entity.Cocktail
+import com.yakow.weber.domain.state.CocktailViewState
+import io.reactivex.Observable
 
 /**
  * Created on 02.04.19
  * @author YWeber */
-@StateStrategyType(value = AddToEndSingleStrategy::class)
-interface CocktailsView : MvpView {
-    fun setCocktails(list: List<Cocktail>)
+
+interface CocktailsView : MviBaseView<CocktailViewState> {
+    fun getFirsCocktailList(): Observable<Boolean>
+
 }
