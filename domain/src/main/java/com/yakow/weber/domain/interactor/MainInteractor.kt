@@ -7,6 +7,4 @@ import javax.inject.Inject
  * Created on 17.03.19
  * @author YWeber */
 
-class MainInteractor @Inject constructor(private val contract: MainContract) {
-
-}
+class MainInteractor @Inject constructor(private val contract: MainContract)

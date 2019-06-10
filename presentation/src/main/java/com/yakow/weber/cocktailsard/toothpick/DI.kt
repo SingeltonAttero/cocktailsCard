@@ -7,4 +7,5 @@ package com.yakow.weber.cocktailsard.toothpick
 object DI {
     const val APP_SCOPE = "app module"
     const val NETWORK_SCOPE = "network module"
+    const val NAVIGATION_SCOPE = "navigation module"
 }

@@ -2,7 +2,7 @@ apply plugin: 'java-library'
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-kapt'
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     //  kotlin stdlib
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     // rx
@@ -15,7 +15,7 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$timberVersion"
     // time lib
     implementation 'net.danlew:android.joda:2.10.1.1'
-    testImplementation "joda-time:joda-time:2.10.1"
+    testImplementation 'joda-time:joda-time:2.10.1'
     // test
     testImplementation "junit:junit:$junit"
 }

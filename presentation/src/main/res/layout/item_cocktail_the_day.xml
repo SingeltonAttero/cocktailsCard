@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cocktailDayCardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_clickable_background">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/include_item_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nameDayCocktailView" />
+
+        <FrameLayout
+            android:id="@+id/pictureDayCocktailContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/pictureDayCocktailView"
+                android:layout_width="170dp"
+                android:layout_height="150dp"
+                android:background="#34FF4081"
+                android:contentDescription="@string/stub"
+                android:scaleType="centerCrop" />
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/nameDayCocktailView"
+            style="@style/titleCocktailTheDayText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="2"
+            app:layout_constraintBottom_toTopOf="@+id/descriptionDayConsistView"
+            app:layout_constraintEnd_toStartOf="@+id/include"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/pictureDayCocktailContainer"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            tools:text="Клубничный милкшейк" />
+
+        <TextView
+            android:id="@+id/descriptionDayConsistView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:maxLines="1"
+            android:textColor="@color/text_bold_black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/timeDayPreparing"
+            app:layout_constraintEnd_toEndOf="@+id/nameDayCocktailView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/nameDayCocktailView"
+            app:layout_constraintTop_toBottomOf="@+id/nameDayCocktailView"
+            tools:text="Клубника, молоко" />
+
+        <TextView
+            android:id="@+id/timeDayPreparing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:maxLines="3"
+            android:textColor="@color/secondary_text"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/descriptionDayConsistView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/descriptionDayConsistView"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionDayConsistView"
+            tools:text="10 - 15 мин" />
+
+
+        <ImageView
+            android:id="@+id/ratingDayCocktail"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/stub"
+            android:src="@drawable/ic_local_bar"
+            android:tint="@color/primary_bottom_select"
+            app:layout_constraintBottom_toBottomOf="@+id/timeDayPreparing"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

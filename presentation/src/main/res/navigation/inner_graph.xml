@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/inner_graph"
-    app:startDestination="@id/cocktailsFragment">
+    app:startDestination="@id/sectionsCocktailsFragment">
     <include app:graph="@navigation/main_graph" />
     <fragment
         android:id="@+id/cocktailsFragment"
@@ -22,5 +22,11 @@
         android:name="com.yakow.weber.cocktailsard.ui.favorite.FavoriteFragment"
         android:label="FavoriteFragment"
         tools:layout="@layout/fragment_favorite"
+        />
+    <fragment
+        android:id="@+id/sectionsCocktailsFragment"
+        android:name="com.yakow.weber.cocktailsard.ui.cocktail.tabs.SectionsCocktailsFragment"
+        android:label="SectionsCocktailsFragment"
+        tools:layout="@layout/fragmen_cocktails_sections"
         />
 </navigation>

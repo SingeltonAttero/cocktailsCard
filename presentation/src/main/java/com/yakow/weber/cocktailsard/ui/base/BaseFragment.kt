@@ -5,40 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.appcompat.app.ActionBar
-import com.yakow.weber.cocktailsard.toothpick.system.androidx.MvpAppCompatFragment
+import com.hannesdorfmann.mosby3.mvi.MviFragment
+import com.yakow.weber.cocktailsard.presenter.base.BasePresenter
+import com.yakow.weber.cocktailsard.presenter.base.MviBaseView
 import com.yakow.weber.cocktailsard.toothpick.system.disposable.ComponentDisposables
 import com.yakow.weber.cocktailsard.toothpick.system.disposable.ComponentDisposablesProvider
-import com.yakow.weber.cocktailsard.ui.MainActivity
 
 /**
  * Created on 13.02.19
  * @author YWeber */
 
-abstract class BaseFragment : MvpAppCompatFragment(), ComponentDisposablesProvider by ComponentDisposables() {
-    companion object {
-        const val DIALOG_TAG = "dialog fragment"
-    }
-
-    val toolbar: ActionBar?
-        get() = (activity as MainActivity).supportActionBar
+abstract class BaseFragment<V : MviBaseView<*>, P : BasePresenter<V, *>> : MviFragment<V, P>(),
+    ComponentDisposablesProvider by ComponentDisposables() {
 
     abstract val layoutRes: Int @LayoutRes get
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(layoutRes, container, false)
-    }
-
-    fun showDialog(progress: Boolean) {
-        val fragment = childFragmentManager.findFragmentByTag(DIALOG_TAG)
-        if (fragment != null && !progress) {
-            (fragment as ProgressDialogFragment).dismissAllowingStateLoss()
-            childFragmentManager.executePendingTransactions()
-        } else if (fragment == null && progress) {
-            val progressDialogFragment = ProgressDialogFragment()
-            progressDialogFragment.show(childFragmentManager, DIALOG_TAG)
-            childFragmentManager.executePendingTransactions()
-        }
     }
 
     override fun onDestroy() {

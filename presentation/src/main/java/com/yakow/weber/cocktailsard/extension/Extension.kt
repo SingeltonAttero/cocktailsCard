@@ -16,6 +16,19 @@ import java.util.concurrent.TimeUnit
  * Created on 15.02.19
  * @author YWeber */
 
+var View.visible: Boolean
+    set(value) {
+        if (value) this.visibility = View.VISIBLE
+        else this.visibility = View.GONE
+    }
+    get() = this.visibility == View.VISIBLE
+
+var View.invisible: Boolean
+    set(value) {
+        if (!value) this.visibility = View.INVISIBLE else View.VISIBLE
+    }
+    get() = this.visibility == View.INVISIBLE
+
 @CheckResult
 fun View.rxOnClickListener(onClick: () -> Unit) =
     RxView.clicks(this)

@@ -7,4 +7,3 @@ import javax.inject.Qualifier
  * @author YWeber */
 
 @Qualifier annotation class ServerPath
-@Qualifier annotation class InnerNavigation

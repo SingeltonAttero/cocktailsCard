@@ -1,5 +1,6 @@
 package com.yakow.weber.cocktailsard.ui.base
 
+/*
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +10,11 @@ import androidx.appcompat.app.AlertDialog
 import com.yakow.weber.cocktailsard.R
 import com.yakow.weber.cocktailsard.toothpick.system.androidx.MvpAppCompatDialogFragment
 
+*/
 /**
  * Created on 13.02.19
- * @author YWeber */
+ * @author YWeber *//*
+
 
 class ProgressDialogFragment : MvpAppCompatDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -25,4 +28,4 @@ class ProgressDialogFragment : MvpAppCompatDialogFragment() {
             .setView(R.layout.progress_dialog)
             .create()
     }
-}
+}*/

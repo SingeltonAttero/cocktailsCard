@@ -8,5 +8,8 @@
     <string name="cocktail">Коктейли</string>
     <string name="favorites">Любимое</string>
     <string name="select_consist">Подбор по составу</string>
+    <string name="stub">todo</string>
+    <string name="long_drink">Лонгдринки</string>
+    <string name="shots">Шоты</string>
 
 </resources>
