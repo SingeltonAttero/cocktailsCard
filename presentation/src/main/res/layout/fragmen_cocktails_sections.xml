@@ -9,6 +9,18 @@
         android:layout_height="wrap_content"
         android:background="@color/header_tabs">
 
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/primary_light"
+            app:expandedTitleGravity="top"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+
+            >
+            <include layout="@layout/toolbar" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/cocktailsTabs"
             android:layout_width="match_parent"
