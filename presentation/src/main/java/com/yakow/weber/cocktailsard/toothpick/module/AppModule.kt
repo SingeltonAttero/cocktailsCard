@@ -14,6 +14,9 @@ import com.yakow.weber.data.system.schedulers.SchedulersProvider
 import com.yakow.weber.domain.interactor.MainInteractor
 import com.yakow.weber.domain.interactor.cocktail.CocktailsContractRepository
 import com.yakow.weber.domain.interactor.contract.MainContract
+import ru.terrakok.cicerone.Cicerone
+import ru.terrakok.cicerone.NavigatorHolder
+import ru.terrakok.cicerone.Router
 import timber.log.Timber
 import toothpick.config.Module
 
@@ -35,6 +38,10 @@ class AppModule(context: Context) : Module() {
         bind(MainInteractor::class.java).to(MainInteractor::class.java)
         Timber.d("cocktails init layer")
         bind(CocktailsContractRepository::class.java).to(CocktailsRepository::class.java)
+
+        val cicerone = Cicerone.create()
+        bind(Router::class.java).toInstance(cicerone.router)
+        bind(NavigatorHolder::class.java).toInstance(cicerone.navigatorHolder)
 
     }
 }

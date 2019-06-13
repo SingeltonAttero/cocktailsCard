@@ -11,5 +11,5 @@ import io.reactivex.Observable
 
 interface CocktailsView : MviBaseView<CocktailViewState> {
     fun getFirsCocktailList(): Observable<Boolean>
-
+    fun actionClickCocktail(): Observable<Cocktail>
 }

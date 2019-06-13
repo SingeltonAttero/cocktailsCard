@@ -1,17 +1,22 @@
 package com.yakow.weber.cocktailsard.presenter.cocktail
 
+import com.yakow.weber.cocktailsard.Screens
 import com.yakow.weber.cocktailsard.extension.printConstruction
 import com.yakow.weber.cocktailsard.presenter.base.BasePresenter
 import com.yakow.weber.domain.interactor.cocktail.CocktailsInteractor
 import com.yakow.weber.domain.state.CocktailPartialState
 import com.yakow.weber.domain.state.CocktailViewState
 import io.reactivex.functions.BiFunction
+import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
 /**
  * Created on 02.04.19
  * @author YWeber */
-class CocktailsPresenter @Inject constructor(private val interactor: CocktailsInteractor) :
+class CocktailsPresenter @Inject constructor(
+    private val interactor: CocktailsInteractor,
+    private val router: Router
+) :
     BasePresenter<CocktailsView, CocktailViewState>() {
     init {
         printConstruction()
@@ -22,6 +27,8 @@ class CocktailsPresenter @Inject constructor(private val interactor: CocktailsIn
             .flatMap {
                 interactor.firstPageCocktails()
             }
+        val intent = intent(CocktailsView::actionClickCocktail)
+
         val initViewState = CocktailViewState(listOf())
         val distinctUntilChanged =
             firstCocktailsIntent.scan(initViewState, reducer).distinctUntilChanged()

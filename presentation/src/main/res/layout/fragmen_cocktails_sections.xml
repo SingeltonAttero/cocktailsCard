@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             app:contentScrim="@color/primary_light"
             app:expandedTitleGravity="top"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
 
             >
             <include layout="@layout/toolbar" />

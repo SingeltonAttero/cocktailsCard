@@ -4,16 +4,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.transition.TransitionManager
 import com.yakow.weber.cocktailsard.R
+import com.yakow.weber.cocktailsard.Screens
 import com.yakow.weber.cocktailsard.presenter.cocktail.CocktailsPresenter
 import com.yakow.weber.cocktailsard.presenter.cocktail.CocktailsView
 import com.yakow.weber.cocktailsard.toothpick.DI
 import com.yakow.weber.cocktailsard.ui.base.BaseFragment
 import com.yakow.weber.cocktailsard.ui.cocktail.adapter.CocktailsAdapter
+import com.yakow.weber.domain.entity.Cocktail
 import com.yakow.weber.domain.state.CocktailViewState
 import io.reactivex.Observable
 import kotlinx.android.synthetic.main.fragment_cocktails.*
-import org.jetbrains.anko.support.v4.toast
+import ru.terrakok.cicerone.Router
 import toothpick.Toothpick
+import javax.inject.Inject
 
 /**
  * Created on 24.03.19
@@ -25,12 +28,19 @@ class CocktailsFragment : BaseFragment<CocktailsView, CocktailsPresenter>(), Coc
         get() = R.layout.fragment_cocktails
 
     private val adapter by lazy {
-        CocktailsAdapter(mutableListOf(), compositeDisposable) { item -> toast("$item") }
+        CocktailsAdapter(mutableListOf())
     }
+    @Inject
+    lateinit var router: Router
 
     override fun createPresenter(): CocktailsPresenter = Toothpick
         .openScope(DI.APP_SCOPE)
         .getInstance(CocktailsPresenter::class.java)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        Toothpick.inject(this, Toothpick.openScope(DI.APP_SCOPE))
+        super.onCreate(savedInstanceState)
+    }
 
     override fun render(viewState: CocktailViewState) {
         TransitionManager.beginDelayedTransition(cocktailsRecycler)
@@ -40,10 +50,13 @@ class CocktailsFragment : BaseFragment<CocktailsView, CocktailsPresenter>(), Coc
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         cocktailsRecycler.adapter = adapter
+        adapter.ActionClicks().subscribe {
+            router.navigateTo(Screens.ScreenToFavorite)
+        }.bind()
     }
 
     override fun getFirsCocktailList(): Observable<Boolean> = Observable.just(true)
 
-
+    override fun actionClickCocktail(): Observable<Cocktail> = adapter.ActionClicks()
 
 }
